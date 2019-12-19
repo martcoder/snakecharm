@@ -6,8 +6,8 @@ void splashScreen(int xmax, int ymax){
 	
   start_color();
 
-  init_pair(8, COLOR_BLACK, COLOR_RED);
-  attron(COLOR_PAIR(8));
+  init_pair(82, COLOR_BLACK, COLOR_RED);
+  attron(COLOR_PAIR(82));
     
   int x = 0;
   int y = 0;
@@ -18,8 +18,8 @@ void splashScreen(int xmax, int ymax){
     }
   }
 
-  init_pair(4, COLOR_BLACK, COLOR_GREEN);
-  attron(COLOR_PAIR(4));
+  init_pair(45, COLOR_BLACK, COLOR_GREEN);
+  attron(COLOR_PAIR(45));
     
 // S
 mvaddch(2, 2, ACS_BLOCK);
@@ -294,6 +294,10 @@ mvaddch(14,65, ACS_BLOCK);
 mvaddch(14,66, ACS_BLOCK);
 mvaddch(14,67, ACS_BLOCK);
 
+init_pair(8, COLOR_CYAN, COLOR_BLACK);
+attron(COLOR_PAIR(8));
+mvprintw(ymax / 2 + 7, xmax/2 - 20, "USE ARROW KEYS TO MOVE, PRESS ENTER FOR SPECIAL");
+
   // wait for enter key to be pressed
   int enter = 1;
   while(enter){
@@ -437,6 +441,9 @@ mvaddch(7,45, ACS_BLOCK);
 mvaddch(8,44, ACS_BLOCK);
 mvaddch(8,43, ACS_BLOCK);
 mvaddch(8,42, ACS_BLOCK);
+
+attron(COLOR_PAIR(8));
+mvprintw(ymax / 2 + 7, xmax/2 - 20, "USE WASD KEYS TO MOVE, PRESS SPACEBAR FOR SPECIAL");
 	
   int enter = 1;
   while(enter){
