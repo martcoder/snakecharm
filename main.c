@@ -265,6 +265,11 @@ int main() {
 	  	add_new_anacondabonus(board);
 	}
   } // end MAIN LOOP
+  
+  clear(); //clear screen
+  
+  splashEnd(xmax, ymax, board); // show end of game splash screen
+  
   //release ncurses resources
   endwin();
 

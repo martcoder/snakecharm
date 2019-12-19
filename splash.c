@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include "backend.h"
 
 // start of game splash screen
 void splashScreen(int xmax, int ymax){
@@ -783,5 +784,39 @@ mvaddch(16,77, ACS_BLOCK);
   }
   timeout(100);// game speed
   
+}
+
+void splashEnd(int xmax, int ymax, Board* board){
+	
+	attron(COLOR_PAIR(8));
+	mvprintw(ymax / 2 - 3, xmax/2 - 17, "GAME OVER");
+	
+	// Print score of playerA
+	attron(COLOR_PAIR(11));
+	char scoreA[12];
+    sprintf(scoreA, "%d", board->snake->score); // Conververt integer score to string
+    mvprintw(ymax / 2, xmax/2 - 17 , "PlayerA scored: ");
+	mvprintw(ymax / 2, xmax/2, scoreA); // Print playerA score as a string
+	
+	// If playerB in play, also show score of player B
+	if(board->snakeB){
+		attron(COLOR_PAIR(22));
+	    char scoreB[12];
+        sprintf(scoreB, "%d", board->snakeB->score); // Conververt integer score to string
+        mvprintw(ymax / 2 + 3, xmax/2 - 17, "PlayerB scored: ");
+	    mvprintw(ymax / 2 + 3, xmax/2, scoreB); // Print playerA score as a string	
+	}
+	
+	timeout(10000);
+	
+	// wait for enter key to be pressed
+  int enter = 1;
+  while(enter){
+    int ch = getch();
+    if(ch = KEY_ENTER){
+      enter = 0;
+    }
+
+  }
 }
 	
