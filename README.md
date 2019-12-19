@@ -34,7 +34,7 @@ Features added by myself include:
 
 - Maze in the centre
 
-- Splash screens for the start of the game, for when PvP bonus is eaten, for when Anaconda bonus is eaten
+- Splash screens for the start of the game, for when PvP bonus is eaten, for when Anaconda bonus is eaten, and for the end of the game to show scores
 
 NOTES FOR DEVELOPERS:
 - This is the non-extended version, which means that it doesn't used extended characterset for symbols or custom colours, which means some of the symbols used are different from the extended version, which is at https://github.com/martcoder/snakegame 
