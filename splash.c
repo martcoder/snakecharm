@@ -807,7 +807,7 @@ void splashEnd(int xmax, int ymax, Board* board){
 	    mvprintw(ymax / 2 + 3, xmax/2, scoreB); // Print playerA score as a string	
 	}
 	
-	timeout(10000);
+	timeout(10000); // set long timeout for splashscreen to be viewed
 	
 	// wait for enter key to be pressed
   int enter = 1;
@@ -816,7 +816,8 @@ void splashEnd(int xmax, int ymax, Board* board){
     if(ch = KEY_ENTER){
       enter = 0;
     }
-
   }
+  
+  timeout(100);// game speed
 }
 	
