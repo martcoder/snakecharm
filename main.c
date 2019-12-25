@@ -157,6 +157,8 @@ int main() {
   keypad(stdscr, TRUE); // make ncurses handle key presses
   curs_set(0); // hide cursor
   
+  
+  
   int xmax;
   int ymax;
   //get current text screen size
@@ -204,11 +206,22 @@ int main() {
   // Add anaconda super bonus to board
   add_new_anacondabonus(board);
   
+  int ch;
+  int* chptr = &ch;
+  
   //MAIN LOOP
   while(true) {
     clear(); //clear screen
     //Draw snake and food lists
     draw(board);
+    
+    /* // For finding a suitable special key for playerB
+    attron(COLOR_PAIR(6));                    
+	// for int to string https://stackoverflow.com/questions/9655202/how-to-convert-integer-to-string-in-c
+	char str[12];
+	sprintf(str, "%d", *chptr); // Conververt integer score to string
+	mvprintw(3, 3, str); // from http://www.tldp.org/HOWTO/NCURSES-Programming-HOWTO/printw.html (6.0 Output functions)
+	* */
     
     // first time - move fireblocks which are travelling independent of snake;
     moveFireblocks(board);
@@ -221,7 +234,7 @@ int main() {
     int * pvp = &pvpactivator;
     
     // Read in the keyboard to see which direction is being pressed or if special key is pressed, reads for playerA and playerB for next move direction
-    get_next_move(*dir_playerAptr, *dir_playerBptr, dir_playerAptr, dir_playerBptr,board->snake,board->snakeB ? board->snakeB : NULL); 
+    get_next_move(*dir_playerAptr, *dir_playerBptr, dir_playerAptr, dir_playerBptr,board->snake,board->snakeB ? board->snakeB : NULL, chptr); 
 
     //update snake direction
     enum Status status = move_snake(board, *dir_playerAptr,board->snake, pvp);

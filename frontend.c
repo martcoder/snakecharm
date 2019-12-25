@@ -59,9 +59,13 @@ void display_points(Board* board,PointList* snake, const chtype symbol, int colo
 }
 
 //Handle keyboard commands in-game
-void get_next_move(enum Direction previouspA,enum Direction previouspB ,enum Direction * pAdirptr,enum Direction * pBdirptr, PointList* pA, PointList* pB) {
-  int ch = getch();
-  switch (ch) {
+void get_next_move(enum Direction previouspA,enum Direction previouspB ,enum Direction * pAdirptr,enum Direction * pBdirptr, PointList* pA, PointList* pB, int* chptr) {
+  *chptr = getch();
+  
+  
+  
+  //printf("key was %d",ch);
+  switch (*chptr) {
     case KEY_LEFT:
       if (previouspA != RIGHT) *pAdirptr = LEFT;
       else *pAdirptr = previouspA; //Direction key is opposite to current direction, so ignore and keep the previous direction
@@ -96,11 +100,12 @@ break;
     case 'w':
       if (previouspB != DOWN) *pBdirptr = UP;
 break;
-    case 32: // Spacebar is playerB special key, so activate playerB usingSpecial variable
+    case 9: // Tab is playerB special key, so activate playerB usingSpecial variable
       if(pB)
         pB->usingSpecial = 1; // activate it
       break;
     default: //nothing pressed or non-direction key pressed, so keep existing directions
+         
       *pAdirptr = previouspA;
       *pBdirptr = previouspB;
   }

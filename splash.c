@@ -443,7 +443,7 @@ mvaddch(8,43, ACS_BLOCK);
 mvaddch(8,42, ACS_BLOCK);
 
 attron(COLOR_PAIR(8));
-mvprintw(ymax / 2 + 7, xmax/2 - 20, "USE WASD KEYS TO MOVE, PRESS SPACEBAR FOR SPECIAL");
+mvprintw(ymax / 2 + 7, xmax/2 - 20, "USE WASD KEYS TO MOVE, PRESS TAB FOR SPECIAL");
 	
   int enter = 1;
   while(enter){

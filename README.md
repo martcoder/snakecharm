@@ -14,7 +14,7 @@ TO RUN:
 
 TO PLAY:
 PlayerA: To play you use the arrow keys for direction, and the Enter key for special. 
-PlayerB: use WASD and the Spacebar for special, and ask playerA to eat the pvp bonus! 
+PlayerB: use WASD and the Tab for special, and ask playerA to eat the pvp bonus! 
 
 FEATURES:
 Features added by myself include:
